@@ -1,0 +1,60 @@
+﻿@model ExamMVC.Models.ExamEditVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div style="display:none" class="form-group">
+                <input asp-for="Exam.Id" class="form-control" />
+                <span asp-validation-for="Exam.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Exam.DersinKodu" class="control-label"></label>
+                <select asp-for="Exam.DersinKodu" class="form-control">
+                    @foreach (var item in Model.Lessons)
+                    {
+                        <option>@item.DersinKodu</option>
+                    }
+                </select>
+                <span asp-validation-for="Exam.DersinKodu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Exam.SagirdinNomresi" class="control-label"></label>
+                <select asp-for="Exam.SagirdinNomresi" class="form-control" >
+                    @foreach (var item in Model.Students)
+                    {
+                        <option>@item.SagirdinNomresi</option>
+                    }
+                </select>
+                <span asp-validation-for="Exam.SagirdinNomresi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Exam.ImtahanTarixi" class="control-label">İmtahan tarixi</label>
+                <input asp-for="Exam.ImtahanTarixi" class="form-control" />
+                <span asp-validation-for="Exam.ImtahanTarixi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Exam.Qiymeti" class="control-label">Qiyməti</label>
+                <input asp-for="Exam.Qiymeti" class="form-control" />
+                <span asp-validation-for="Exam.Qiymeti" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

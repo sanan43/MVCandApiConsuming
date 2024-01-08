@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ExamMVC.Models.StudentsVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Şagirdlər</h1>
+
+<p>
+    <a asp-controller="Student" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>*@
+            <th>
+                @*@Html.DisplayNameFor(model => model.SagirdinNomresi)*@
+                <label>Şagirdin nömrəsi</label>
+            </th>
+            <th>
+               @* @Html.DisplayNameFor(model => model.Ad)*@
+                <label>Şagirdin adı</label>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Soyad)*@
+                <label>Şagirdin soyadı</label>
+            </th>
+            <th>
+               @* @Html.DisplayNameFor(model => model.Sinifi)*@
+                <label>Şagirdin sinifi</label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           @* <td>
+                @html.displayfor(modelitem => item.id)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.SagirdinNomresi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sinifi)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id  }) |
+                
+                @Html.ActionLink("Delete", "Delete", new {  id=item.Id  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

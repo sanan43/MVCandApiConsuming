@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ExamMVC.Models.LessonsVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Dərslər</h1>
+
+<p>
+    <a asp-controller="Lesson" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>*@
+            <th>
+                @*@Html.DisplayNameFor(model => model.DersinKodu)*@
+                <label>Dərsin kodu</label>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.DersinAdi)*@
+                <label>Dərsin adı</label>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Sinifi)*@
+                <label>Sinifi</label>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.MuellimAdi)*@
+                <label>Müəllimin adı</label>
+            </th>
+            <th>
+               @* @Html.DisplayNameFor(model => model.MuellimSoyadi)*@
+                <label>Müəllimin soyadı</label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           @* <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.DersinKodu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DersinAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sinifi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MuellimAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MuellimSoyadi)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
+                
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

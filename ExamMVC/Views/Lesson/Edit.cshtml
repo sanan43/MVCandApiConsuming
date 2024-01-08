@@ -1,0 +1,57 @@
+﻿@model ExamMVC.Models.LessonsVM
+
+@{
+    ViewData["Title"] = "Edit Lesson";
+}
+
+<h1>Edit</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div style="display:none" class="form-group">
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DersinKodu" class="control-label">Dərsin kodu</label>
+                <input asp-for="DersinKodu" class="form-control" />
+                <span asp-validation-for="DersinKodu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DersinAdi" class="control-label">Dərsin adı</label>
+                <input asp-for="DersinAdi" class="form-control" />
+                <span asp-validation-for="DersinAdi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sinifi" class="control-label">Sinifi</label>
+                <input asp-for="Sinifi" class="form-control" />
+                <span asp-validation-for="Sinifi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MuellimAdi" class="control-label">Müəllimin adı</label>
+                <input asp-for="MuellimAdi" class="form-control" />
+                <span asp-validation-for="MuellimAdi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MuellimSoyadi" class="control-label">Müəllimin soyadı</label>
+                <input asp-for="MuellimSoyadi" class="form-control" />
+                <span asp-validation-for="MuellimSoyadi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
